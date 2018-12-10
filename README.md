@@ -24,23 +24,11 @@ For setup the app you need to install only a browser. This means the app no inst
 
 # BDD
 
-Triangle Tracking App solves to output if data user input right outputs if is triangle or not. Following are the requirement for the user input:
-a. Not empty data for all the three fields
-b. Must be a numeric.
-c. Not a negative.
-d. Not decimal numbers
-e. Minimam number is 1 and Maximum is 1000 (This is optional but am using for test purpose for this project.)
-
-After checking all that requirements, I will first check if all sides can fit a triangle.
-If not fit app will display "Not a triangle".
-If it is triangle now I check :
-a. Equilateral Triangle
-b. Isosceles Triangle
-c. Scalene Triangle
-After all I will display the result.
+Quiz Board App solves to interview to candidates Following are the requirement for the user input:
+a. Gather all quiz answers.
+b. Checking all answers and give result..
 
 # Technologies Used
-
 I have used to build this app following Technologies:
 1\. html
 2\. css
