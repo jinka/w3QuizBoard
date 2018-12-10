@@ -14,7 +14,6 @@ Quiz Board facilitate instructor and students to see where they are excelling or
  To run the project you need to put following link in any browser: <https://jinka.github.io/w3QuizBoard/>
 
 # Author Information
-
 My name is Dayud Mohamed Farah, I am one the Moringa prep class 14.
 
 # Setup Instruction
