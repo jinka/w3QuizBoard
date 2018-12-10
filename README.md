@@ -10,10 +10,12 @@ Quiz Board facilitate instructor and students to see where they are excelling or
 
 # Getting started
 
- First you see the home page of this week 3 project. To access the Quiz Board you click Quiz Board under project 2.
+ Firs
+ t you see the home page of this week 3 project. To access the Quiz Board you click Quiz Board under project 2.
  To run the project you need to put following link in any browser: <https://jinka.github.io/w3QuizBoard/>
 
 # Author Information
+
 My name is Dayud Mohamed Farah, I am one the Moringa prep class 14.
 
 # Setup Instruction
