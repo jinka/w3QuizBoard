@@ -32,6 +32,7 @@ For the Code, I have prepared some questions and answers so the user can select 
 This not mean that the app cannot fit more than 5 questions. The way I used is that the questions are open. You need only to add as much as you want. This version is displaying all questions in one page, I hope next version will do one by one at a time. I also want to highlight that to easy  add more questions next version I will add a text file to read all questions on the fly.
 
 # Technologies Used
+
 I have used to build this app following Technologies:
 1\. html
 2\. css
