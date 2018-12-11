@@ -85,4 +85,35 @@ $(document).ready(function() {
     quizBoard.innerHTML = output.join('');
   }
 
+    function viewResults() {
+
+      var answerContainers = quizBoard.querySelectorAll('.answers');
+      let numCorrect = 0;
+
+      allQuestions.forEach((currentQuestion, questionNumber) => {
+
+        var answerContainer = answerContainers[questionNumber];
+        var selector = 'input[name=question' + questionNumber + ']:checked';
+        var userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        if (userAnswer === currentQuestion.correctAnswer) {
+          numCorrect++;
+        } else {
+
+          answerContainers[questionNumber].style.color = 'red';
+        }
+      });
+    //   if (numCorrect < 5) {
+    //     var scoringNow = confirm("Some answers are wrong or empty, to proceed press ok");
+    //     if (scoringNow) {
+    //       alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
+    //     }
+    //   } else {
+    //     event.preventDefault();
+    //     $("#form-quiz").toggle("slow",function(){
+    //       alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
+    //     });
+    //   }
+    // }
+
 });
