@@ -103,17 +103,17 @@ $(document).ready(function() {
           answerContainers[questionNumber].style.color = 'red';
         }
       });
-    //   if (numCorrect < 5) {
-    //     var scoringNow = confirm("Some answers are wrong or empty, to proceed press ok");
-    //     if (scoringNow) {
-    //       alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
-    //     }
-    //   } else {
-    //     event.preventDefault();
-    //     $("#form-quiz").toggle("slow",function(){
-    //       alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
-    //     });
-    //   }
-    // }
+      if (numCorrect < 5) {
+        var scoringNow = confirm("Some answers are wrong or empty, to proceed press ok");
+        if (scoringNow) {
+          alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
+        }
+      } else {
+        event.preventDefault();
+        $("#form-quiz").toggle("slow",function(){
+          alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
+        });
+      }
+    }
 
 });
