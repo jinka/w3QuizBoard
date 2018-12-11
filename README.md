@@ -28,11 +28,15 @@ Quiz Board App solves to interview to candidates Following are the requirement f
 a. Gather all quiz answers.
 b. Checking all answers and give result..
 
+For the Code, I have prepared some questions and answers so the user can select the correct one, user has an option to check the correct one. I have used option buttons for this. If the user not check an option or check an invalid one I popup a confirmation box to proceed and score his / her answers. I then score if he proceed to score. For every answer I give 20 points. For 5 questions total is 100.
+This not mean that the app cannot fit more than 5 questions. The way I used is that the questions are open. You need only to add as much as you want. This version is displaying all questions in one page, I hope next version will do one by one at a time. I also want to highlight that to easy  add more questions next version I will add a text file to read all questions on the fly.
+
 # Technologies Used
 I have used to build this app following Technologies:
 1\. html
 2\. css
 3\. Javascript
+4\. JQuery
 
 # Contact Information
 
