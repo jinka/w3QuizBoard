@@ -1,3 +1,7 @@
 $(document).ready(function() {
-alert("");
+
+  var quizBoard = document.getElementById('quiz');
+  var resultBoard = document.getElementById('results');
+  var finishButton = document.getElementById('submit');
+
 });
