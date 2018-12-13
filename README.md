@@ -20,7 +20,10 @@ My name is Dayud Mohamed Farah, I am one the Moringa prep class 14.
 
 # Setup Instruction
 
-For setup the app you need to install only a browser. This means the app no installation or setup needed.
+Follow these to setup Quiz Board Application:
+1. Git clone the project using git clone https://github.com/jinka/w3QuizBoard.git
+2. Then go inside project folder => cd w3ip
+3. Open Index.html in a browser like Google chrome.
 
 # BDD
 
