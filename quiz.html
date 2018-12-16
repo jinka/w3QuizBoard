@@ -15,15 +15,38 @@
 <body>
 
   <div class="container">
-    <h1>Quiz Board</h1>
-    <form id="form-quiz">
-      <div class="jumbotron">
-        <div id="quiz"></div>
-        <button id="submit">Finsh to Get Result</button>
-        <div id="results"></div>
-      </div>
-    </form>
+    <header>
+      <h1>Quiz Board</h1>
+    </header>
 
+    <div class="row">
+      <div class="col-md-8 col-ms-8">
+        <form  id="form-quiz">
+
+
+          <div class="container jumbotron">
+            <div id="quiz">
+              <form class="form-control" id="form-quiz" action="#" method="post">
+                <fieldset>
+                  <div class="radio"></div>
+                  <button id="submit">Finish The Game</button>
+                </fieldset>
+              </form>
+            </div>
+            <div id="results"></div>
+          </div>
+        </form>
+        <button id="button" type="button" name="button">Start Now</button>
+      </div>
+      <div class="col-md-4 col-ms-4">
+        <h1>Quiz Messages</h1>
+        <p id="start-info">
+          To Stat the Game please click Start Button. After finishing and get your score, you can play again without restarting
+          the app, simple clcik start button. We also keep your answers so you can recheck and Finish to rescore.
+        </p>
+        <p id="quiz-result">Result is Here: </p>
+      </div>
+    </div>
   </div>
 </body>
 

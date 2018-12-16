@@ -1,119 +1,103 @@
-$(document).ready(function() {
+//Business Logic
+var correctedAnswers = 0
+var collectedAnswers=[];
+var correctAnswer = ['q1c','q2c','q3d','q4b','q5a'];
+var isGameFinished = false;
+var result = 0
 
-  var quizBoard = document.getElementById('quiz');
-  var resultBoard = document.getElementById('results');
-  var finishButton = document.getElementById('submit');
-  var allQuestions = [{
-      question: "What do dragonflies prefer to eat?",
-      answers: {
-        a: "Bee",
-        b: "Dogs",
-        c: "Mosquitoes"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which is the largest species of the tiger?",
-      answers: {
-        a: "Asian Tiger",
-        b: "African tiger",
-        c: "Siberian tiger"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "In what year was Google launched on the web?",
-      answers: {
-        a: "1980",
-        b: "1990",
-        c: "2001",
-        d: "1998"
-      },
-      correctAnswer: "d"
-    },
-    {
-      question: "What is the country top-level domain of Kenya?",
-      answers: {
-        a: ".co",
-        b: ".ke",
-        c: ".co.uk",
-        d: ".co.ke"
-      },
-      correctAnswer: "b"
-    },
-    {
-      question: "In computing what is Ram short for?",
-      answers: {
-        a: "Random Access Memory",
-        b: "Read Only Memory",
-        c: "Read Access Momory",
-        d: "None"
-      },
-      correctAnswer: "a"
+function finalScore(totalCorrected) {
+  result = totalCorrected * 20;
+  isGameFinished = true;
+}
+
+function checkOptions(){
+
+  var check= true;
+  $("input:radio").each(function(){
+    var name = $(this).attr("name");
+    if($("input:radio[name="+name+"]:checked").length == 0){
+      check = false;
+    } else {
+      collectedAnswers.push($("input:radio[name="+name+"]:checked").val())
     }
-  ];
-  createOptionQuiz();
 
-  finishButton.addEventListener("click", viewResults);
+  });
 
-  function createOptionQuiz() {
-
-    var output = [];
-
-    allQuestions.forEach(
-      (currentQuestion, questionNumber) => {
-
-        var answers = [];
-
-        for (letter in currentQuestion.answers) {
-          answers.push(
-            `<label>
-            <input type="radio" name="question${questionNumber}" value="${letter}">
-            ${letter} :
-            ${currentQuestion.answers[letter]}
-          </label>`
-          );
-        }
-        output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-        <div class="answers"> ${answers.join('')} </div>`
-        );
-
+  if(check){
+    var uniqueCollectedAnswers=jQuery.unique(collectedAnswers)
+    $.each(uniqueCollectedAnswers, function( index, value ) {
+      if (correctAnswer.indexOf(uniqueCollectedAnswers[index]) >= 0) {
+        correctedAnswers += 1;
       }
+    });
+    finalScore(correctedAnswers)
 
-    );
-    quizBoard.innerHTML = output.join('');
+  } else{
+    alert('You must select one answer in each question');
   }
+}
 
-    function viewResults() {
+//---------------------------------------------------------------------------------
 
-      var answerContainers = quizBoard.querySelectorAll('.answers');
-      let numCorrect = 0;
+//User Interface Login
 
-      allQuestions.forEach((currentQuestion, questionNumber) => {
+$(document).ready(function(){
 
-        var answerContainer = answerContainers[questionNumber];
-        var selector = 'input[name=question' + questionNumber + ']:checked';
-        var userAnswer = (answerContainer.querySelector(selector) || {}).value;
+  $(".radio").append("<h4>What do dragon flies prefer to eat?</h4>")
+  $(".radio").append('<label></label><input type="radio" name="q1" value="q1a">Bee<br>')
+  $(".radio").append('<label></label><input type="radio" name="q1" value="q1b">Dogs<br>')
+  $(".radio").append('<label></label><input type="radio" name="q1" value="q1c">Mosquitoes<br>')
 
-        if (userAnswer === currentQuestion.correctAnswer) {
-          numCorrect++;
-        } else {
+  $(".radio").append("<h4>Which is the largest species of the tiger?</h4>")
+  $(".radio").append('<label></label><input type="radio" name="q2" value="q2a">Asian Tiger<br>')
+  $(".radio").append('<label></label><input type="radio" name="q2" value="q2b">African tiger<br>')
+  $(".radio").append('<label></label><input type="radio" name="q2" value="q2c">Siberian tiger<br>')
 
-          answerContainers[questionNumber].style.color = 'red';
-        }
-      });
-      if (numCorrect < 5) {
-        var scoringNow = confirm("Some answers are wrong or empty, to proceed press ok");
-        if (scoringNow) {
-          alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
-        }
-      } else {
-        event.preventDefault();
-        $("#form-quiz").toggle("slow",function(){
-          alert("Your Score is :" + "\n" + (numCorrect * 100) / 5 + ' Out Of ' + (allQuestions.length * 100) / 5);
-        });
-      }
+  $(".radio").append("<h4>In what year was Google launched on the web?</h4>")
+  $(".radio").append('<label></label><input type="radio" name="q3" value="q3a">1980<br>')
+  $(".radio").append('<label></label><input type="radio" name="q3" value="q3b">1990<br>')
+  $(".radio").append('<label></label><input type="radio" name="q3" value="q4c">2001<br>')
+  $(".radio").append('<label></label><input type="radio" name="q3" value="q3d">1998<br>')
+
+  $(".radio").append("<h4>What is the country top-level domain of Kenya?</h4>")
+  $(".radio").append('<label></label><input type="radio" name="q4" value="q4a">.co<br>')
+  $(".radio").append('<label></label><input type="radio" name="q4" value="q4b">.ke<br>')
+  $(".radio").append('<label></label><input type="radio" name="q4" value="q4c">.co.uk<br>')
+  $(".radio").append('<label></label><input type="radio" name="q4" value="q4d">.co.ke<br>')
+
+  $(".radio").append("<h4>In computing what is Ram short for?</h4>")
+  $(".radio").append('<label></label><input type="radio" name="q5" value="q5a">Random Access Memory<br>')
+  $(".radio").append('<label></label><input type="radio" name="q5" value="q5b">Read Only Memory<br>')
+  $(".radio").append('<label></label><input type="radio" name="q5" value="q5c">Read Access Momory<br>')
+  $(".radio").append('<label></label><input type="radio" name="q5" value="q5d">None<br>')
+
+  $("#quiz").hide();
+  $("#start-info").hide()
+
+
+  $("#button").click(function(){
+    $("#quiz").toggle();
+    $("#button").toggle()
+    $("#start-info").toggle()
+    $("h1").addClass("light-blue")
+    correctedAnswers=0
+  })
+
+
+  $("#form-quiz").submit(function() {
+    correctedAnswers=0
+    collectedAnswers=[]
+    checkOptions()
+
+    if (isGameFinished) {
+      $("#quiz").toggle();
+      $("#button").toggle()
+      $("#start-info").toggle()
+       $("#quiz-result").text("Result is Here : Your score is : " + result + " Out of 100")
+       $("h1").css("background-color","#cc3399")
+      isGameFinished=false;
     }
 
+    event.preventDefault();
+  });
 });
